@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Coin : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public int m_Value = 1;
+    public static int m_Value = 1;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,6 +13,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
         {
             // find the ScoreManager and add points 
             ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
+
+            if (scoreManager != null)
+            {
+                ScoreManager.AddScore(m_Value);
+            }
+
         }
     }
 }
