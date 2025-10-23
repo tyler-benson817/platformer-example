@@ -12,11 +12,11 @@ public class Coin : MonoBehaviour
         if (collision.CompareTag("player"))
         {
             // find the ScoreManager and add points 
-            ScoreManager scoreManager = FindAnyObjectByType<ScoreManager>();
+            ScoreManager _scoreManager = FindAnyObjectByType<ScoreManager>();
 
-            if (scoreManager != null)
+            if (_scoreManager != null)
             {
-                ScoreManager.AddScore(m_Value);
+                _scoreManager.AddScore(m_Value);
             }
 
         }
