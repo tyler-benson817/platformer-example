@@ -30,10 +30,6 @@ public class Death : MonoBehaviour
                 //If the player has lives remaining, the respawn function is run
                 Die();
             }
-            else
-            {
-                //game over logic here
-            }
         }
         //This is called if an object with tag hazard is hit
         if(collision.gameObject.CompareTag("Hazard"))
@@ -43,11 +39,6 @@ public class Death : MonoBehaviour
             if (health <= 0)
             {
                 Die();
-            }
-            else
-            {
-                //restarts the level if they run out of lives
-                ReloadScene();
             }
             //This updates the text that says the players health
             HPCounter.text = "HP: " + health.ToString();
