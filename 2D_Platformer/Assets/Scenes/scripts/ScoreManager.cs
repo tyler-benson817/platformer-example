@@ -1,35 +1,40 @@
+
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static ScoreManager instance;
+    public int totalCoins = 0;
+    public TextMeshProUGUI coinText; // Assign in Inspector
 
-    public TextMeshProUGUI m_ScoreText;
-    private int m_Score;
-
-    void Start()
+    //public TextMeshProUGUI scoreText;
+    private int m_Score; 
+    
+    void Awake()
     {
-        UpdateScoreUI();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void AddScore(int amount)
-    { 
-
-        m_Score += amount;
+    {
+        totalCoins += amount;
         UpdateScoreUI();
-
     }
 
     void UpdateScoreUI()
     {
-        m_ScoreText.text = "Score: " + m_Score;
+        if (coinText != null)
+        {
+            coinText.text = "Coins: " + totalCoins;
+        }
     }
 }

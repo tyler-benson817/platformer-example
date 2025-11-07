@@ -1,22 +1,23 @@
 
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class SceneTransition : MonoBehaviour
 {
-    public string sceneToLoad = "NewScene"; // Name of the scene to load
+    public string sceneToLoad = "SampleScene"; 
 
     private bool playerInRange = false;
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E)) // Change 'E' to your desired key
+        if (playerInRange && Input.GetKeyDown(KeyCode.W)) 
         {
             SceneManager.LoadScene(sceneToLoad);
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -24,11 +25,13 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnTriggerExit2D(Collider2D other)
     {
+       
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
         }
     }
+    
 }

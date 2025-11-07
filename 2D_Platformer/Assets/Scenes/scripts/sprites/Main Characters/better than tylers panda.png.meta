@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      better than tylers panda_0: -1732254738243775352
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

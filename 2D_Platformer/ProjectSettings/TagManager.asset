@@ -7,6 +7,9 @@ TagManager:
   - hazard
   - layermask
   - ground
+  - Hazard
+  - Death
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
