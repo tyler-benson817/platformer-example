@@ -1,8 +1,5 @@
 using System.Collections.Generic;
 using TMPro;
-
-//using TMPro;
-//using Unity.Multiplayer.Center.Common;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,36 +13,43 @@ public class animal : MonoBehaviour
 
     private void Start()
     {
-        generateQuestion();
+        if (QnA.Count > 0)
+            GenerateQuestion();
+        else
+            QuestionTxt.text = "No questions available.";
     }
 
-    public void correct()
+    public void Correct()
     {
         QnA.RemoveAt(CurrentQuestion);
-        generateQuestion();
+        if (QnA.Count > 0)
+            GenerateQuestion();
+        else
+            QuestionTxt.text = "Quiz Complete!";
     }
 
     private void SetAnswers()
     {
         for (int i = 0; i < options.Length; i++)
         {
-            options[i].GetComponent<AnswerScript>().isCorrect = false;
-            options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
-            options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = QnA[CurrentQuestion].Answers[i];
+            var answerScript = options[i].GetComponent<AnswerScript>();
+            answerScript.isCorrect = false;
 
-            if (QnA[CurrentQuestion].CorrectAnswer == i + 1)
+            var answerText = options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            answerText.text = QnA[CurrentQuestion].Answers[i];
 
+            if (QnA[CurrentQuestion].CorrectAnswer == i)
             {
-                options[i].transform.GetComponent<AnswerScript>().isCorrect = true;
+                answerScript.isCorrect = true;
             }
         }
+
     }
-    private void generateQuestion()
+
+    private void GenerateQuestion()
     {
-            CurrentQuestion = Random.Range(0, QnA.Count);
-
-            QuestionTxt.text = QnA[CurrentQuestion].Question;
-
-            SetAnswers();
+        CurrentQuestion = Random.Range(0, QnA.Count);
+        QuestionTxt.text = QnA[CurrentQuestion].Question;
+        SetAnswers();
     }
 }

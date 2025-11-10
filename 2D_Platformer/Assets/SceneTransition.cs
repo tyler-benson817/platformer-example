@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 
 public class SceneTransition : MonoBehaviour
 {
-    public string sceneToLoad = "SampleScene"; 
+    public string sceneToLoad = "quiz 1"; 
 
     private bool playerInRange = false;
 

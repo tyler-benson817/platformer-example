@@ -3,21 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public string m_SceneToLoad;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void ChangeScene(string sceneName)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void LoadScene()
-    {
-        SceneManager.LoadScene(m_SceneToLoad);
+        SceneManager.LoadScene(sceneName);
     }
 }
