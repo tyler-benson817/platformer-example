@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     public int totalCoins = 0;
     public TextMeshProUGUI coinText; // Assign in Inspector
 
-    //public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText;
     private int m_Score; 
     
     void Awake()
